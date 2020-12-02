@@ -47,8 +47,10 @@ MongoDB Cloud (free) [https://www.mongodb.com/try](https://www.mongodb.com/try)
 
 3. Arraste a opção template para uma área branca do fluxo e selecione o template no combo
 
-4. Clique com o botão direito no Process Group e em Configure para ativar (clicando no rainho) para ativar os serviços do Controller Service desse Process Group. No service do Redis você precisará colocar novamente a senha do REDIS que está no docker-compose.yml.
+4. Clique com o botão direito no Process Group e em Configure para ativar (clicando no rainho) para ativar os serviços do Controller Service desse Process Group.
 
-5. Não esqueça de acertar a configuração do e-mail e do MongoDB.
+5. A senha do REDIS, do e-mail e a URL do Mongo estão no Parameter Context. Os nomes dos parametros são EMAIL_SENHA, MONGO_URL e REDIS_SENHA.
 
-6. Inicie o fluxo, envie o arquivo people.csv para o e-mail configurado no primeiro processor e seja feliz!
+6. Não esqueça de acertar a configuração do e-mail e do MongoDB.
+
+7. Inicie o fluxo, envie o arquivo people.csv para o e-mail configurado no primeiro processor e seja feliz!
