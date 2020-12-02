@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  nifi:
+    container_name: tdc-poa-2020-nifi
+    image: apache/nifi:1.11.4
+    user: root
+    #network_mode: bridge
+    hostname: tdc-nifi
+    #volumes:
+    #  - /home/eliezer/Work/orizon/gitlab/motor-analitico-recursos/nifi-external-libs:/opt/amq/libs
+    ports:
+      - 8080:8080 
+      - 8020:8020
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+      - NIFI_JVM_HEAP_INIT=1g
+      - NIFI_JVM_HEAP_MAX=2g
+    depends_on:
+      - 'redis'
+  redis:
+    container_name: tdc-poa-2020-redis
+    #network_mode: host
+    image: redis:latest
+    hostname: tdc-redis
+    command: ["redis-server", "--port", "6379", "--requirepass", "TDCNiFiRedis2020!"]
+    ports:
+      - 6379:6379
+  redisinsight:
+    container_name: tdc-poa-2020-redisinsight
+    image: redislabs/redisinsight:latest
+    user: root
+    #network_mode: host
+    ports:
+      - 8001:8001
+
